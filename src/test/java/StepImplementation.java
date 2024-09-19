@@ -1,6 +1,4 @@
 import com.thoughtworks.gauge.Step;
-import com.thoughtworks.gauge.Table;
-import com.thoughtworks.gauge.TableRow;
 
 import java.util.HashSet;
 
@@ -22,17 +20,6 @@ public class StepImplementation {
     public void verifyVowelsCountInWord(String word, int expectedCount) {
         int actualCount = countVowels(word);
         assertEquals(expectedCount, actualCount);
-    }
-
-    @Step("Almost all words have vowels <wordsTable>")
-    public void verifyVowelsCountInMultipleWords(Table wordsTable) {
-        for (TableRow row : wordsTable.getTableRows()) {
-            String word = row.getCell("Word");
-            int expectedCount = Integer.parseInt(row.getCell("Vowel Count"));
-            int actualCount = countVowels(word);
-
-            assertEquals(expectedCount, actualCount);
-        }
     }
 
     private int countVowels(String word) {
