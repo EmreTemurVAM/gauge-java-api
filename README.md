@@ -1,3 +1,16 @@
+## Installation guide
+1. Install Gauge on your operating system: 
+https://docs.gauge.org/getting_started/installing-gauge.html?os=macos&language=java&ide=intellij
+2. Install IntelliJ IDEA (Community Edition is sufficient)
+3. Start IntelliJ IDEA
+   1. Navigate to IntelliJ->Settings->Plugins-> search for "Gauge" -> install it
+   2. Navigate to IntelliJ->Settings->Tools->Gauge-> Set Gauge binary path
+      - Windows: %ProgramFiles%\gauge\bin
+      - MacOS: /usr/local/bin
+      (If installed with brew: /opt/homebrew/bin/gauge)
+   3. Close settings dialogue (Click on OK)
+4. Navigate to File->Project Structure->Project Settings/Project->Set SDK: Choose/download "Eclipse Temurin (AdoptOpenJDK Hotspot) 11.0.24 - arch64"
+
 
 ## Exercise with Star Wars API (SWAPI)
 Using a gauge test, we want to invoke the API and check it for functionality. 
