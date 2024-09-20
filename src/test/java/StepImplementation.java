@@ -1,35 +1,24 @@
+import com.thoughtworks.gauge.Gauge;
 import com.thoughtworks.gauge.Step;
-
-import java.util.HashSet;
 
 import static org.junit.Assert.assertEquals;
 
 public class StepImplementation {
 
-    private HashSet<Character> vowels;
+    private int actualSum;
 
-    @Step("Vowels in English language are <vowelString>.")
-    public void setLanguageVowels(String vowelString) {
-        vowels = new HashSet<>();
-        for (char ch : vowelString.toCharArray()) {
-            vowels.add(ch);
-        }
+    @Step("Step 1: <param1> <param2>")
+    public void step1(String param1, String param2) {
+        Gauge.writeMessage(param1 + " " + param2);
     }
 
-    @Step("The word <word> has <expectedCount> vowels.")
-    public void verifyVowelsCountInWord(String word, int expectedCount) {
-        int actualCount = countVowels(word);
-        assertEquals(expectedCount, actualCount);
+    @Step("Step 2: calculate <summand1> + <summand>")
+    public void step2(int summand1, int summand2) {
+        actualSum = summand1 + summand2;
     }
 
-    private int countVowels(String word) {
-        int count = 0;
-        for (char ch : word.toCharArray()) {
-            if (vowels.contains(ch)) {
-                count++;
-            }
-        }
-        return count;
+    @Step("Step 3: expected sum is <sum>")
+    public void step3(int expectedSum) {
+        assertEquals(expectedSum, actualSum);
     }
-
 }
